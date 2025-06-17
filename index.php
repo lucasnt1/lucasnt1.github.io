@@ -1,9 +1,3 @@
-<?php
-$counterFile = "counter.txt";
-$count = file_exists($counterFile) ? (int)file_get_contents($counterFile) : 0;
-$count++;
-file_put_contents($counterFile, $count);
-?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -23,6 +17,5 @@ file_put_contents($counterFile, $count);
 <body>
   <img src="GWW_Logogross.png" alt="Bild oben">
   <p><strong>Möbelbörse Torgelow</strong></p>
-  <p>Dieses Angebot gefällt schon <strong><?php echo $count; ?></strong> mal.</p>
 </body>
 </html>
