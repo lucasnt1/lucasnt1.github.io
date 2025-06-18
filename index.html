@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -5,16 +6,41 @@
   <style>
     body {
       font-size: 80px; /* Faktor 10 */
-      background-color: rgb(51, 51, 204); /* Blauer Hintergrund */
-      color: white; /* Weiße Schrift */
+      background-color: rgb(51, 51, 204);
+      color: white;
       margin: 0;
       padding: 20px;
       font-family: sans-serif;
     }
+    button {
+      font-size: 40px;
+      padding: 20px;
+      background-color: white;
+      color: rgb(51, 51, 204);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
   </style>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("DEIN_USER_ID"); // <--- HIER DEINE USER ID EINFÜGEN
+    })();
+
+    function sendeMail() {
+      emailjs.send("DEIN_SERVICE_ID", "DEIN_TEMPLATE_ID", {
+        from_name: "Martin",
+        reply_to: "gerspachm1@gmail.com",
+        message: "Das ist eine Testnachricht von der MB-Seite."
+      })
+      .then(() => alert("E-Mail erfolgreich gesendet!"))
+      .catch((error) => alert("Fehler beim Senden: " + error.text));
+    }
+  </script>
 </head>
 <body>
   <p><strong>Möbelbörse</strong></p>
-  <a href="mailto:gerspachm1@gmail.com?subject=Hallo&body=Nachricht">E-Mail senden</a>
+  <button onclick="sendeMail()">E-Mail senden</button>
 </body>
 </html>
