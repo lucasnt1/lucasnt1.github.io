@@ -3,7 +3,7 @@ $name = $_POST['name'] ?? '';
 $email = $_POST['email'] ?? '';
 $message = $_POST['message'] ?? '';
 
-$to = "deine@email.de"; // Empfängeradresse
+$to = "gerspachm1@gmail.com"; // Empfängeradresse
 $subject = "Neue Nachricht von $name";
 $headers = "From: $email\r\n";
 $headers .= "Reply-To: $email\r\n";
