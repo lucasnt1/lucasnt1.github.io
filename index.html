@@ -2,29 +2,30 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Möbelbörse</title>
-  <style>
-    body {
-      font-size: 80px;
-      background-color: rgb(51, 51, 204);
-      color: white;
-      margin: 0;
-      padding: 20px;
-      font-family: sans-serif;
-    }
-    button {
-      font-size: 40px;
-      padding: 20px;
-      background-color: white;
-      color: rgb(51, 51, 204);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-  </style>
+  <title>Kontaktformular</title>
 </head>
 <body>
-  <p><strong>MB</strong></p>
+  <h1>Schreib mir eine Nachricht</h1>
+  <form id="kontaktForm">
+    <input type="text" name="name" placeholder="Dein Name" required><br>
+    <input type="email" name="email" placeholder="Deine E-Mail" required><br>
+    <textarea name="message" placeholder="Deine Nachricht" required></textarea><br>
+    <button type="submit">Senden</button>
+  </form>
+
+  <script>
+    document.getElementById("kontaktForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+
+      fetch("senden.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => alert(data))
+      .catch(error => alert("Fehler: " + error));
+    });
+  </script>
 </body>
 </html>
-
