@@ -22,30 +22,9 @@
       cursor: pointer;
     }
   </style>
-
-  <!-- EmailJS-Script -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-      emailjs.init({
-        publicKey: "OYTmQdKstLMJYsegi" // <-- Hier den echten Public Key einfügen
-      });
-    });
-
-    function sendeMail() {
-      emailjs.send("service_polokwm", "template_0pcjybb", {
-        from_name: "Martin",
-        reply_to: "gerspachm1@gmail.com",
-        message: "Das ist eine Nachricht von der Möbelbörse-Seite"
-      })
-      .then(() => alert("E-Mail erfolgreich gesendet!"))
-      .catch((error) => alert("Fehler beim Senden: " + error.text));
-    }
-  </script>
 </head>
 <body>
   <p><strong>MB</strong></p>
-  <button onclick="sendeMail()">E-Mail senden</button>
 </body>
 </html>
 
