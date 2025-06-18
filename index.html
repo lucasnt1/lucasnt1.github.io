@@ -5,7 +5,7 @@
   <title>Möbelbörse</title>
   <style>
     body {
-      font-size: 80px; /* Faktor 10 */
+      font-size: 80px;
       background-color: rgb(51, 51, 204);
       color: white;
       margin: 0;
@@ -22,17 +22,21 @@
       cursor: pointer;
     }
   </style>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function(){
-      emailjs.init("OYTmQdKstLMJYsegi"); // <--- HIER DEINE USER ID EINFÜGEN
-    })();
+
+  <!-- EmailJS-Script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+      emailjs.init({
+        publicKey: "OYTmQdKstLMJYsegi" // <-- Hier den echten Public Key einfügen
+      });
+    });
 
     function sendeMail() {
       emailjs.send("service_polokwm", "template_0pcjybb", {
         from_name: "Martin",
         reply_to: "gerspachm1@gmail.com",
-        message: "Das ist eine Testnachricht von der MB-Seite."
+        message: "Das ist eine Nachricht von der Möbelbörse-Seite"
       })
       .then(() => alert("E-Mail erfolgreich gesendet!"))
       .catch((error) => alert("Fehler beim Senden: " + error.text));
@@ -44,3 +48,4 @@
   <button onclick="sendeMail()">E-Mail senden</button>
 </body>
 </html>
+
